@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <!-- 传统的构造注入 -->
+      <!-- <bean id="compactDesc" class="com.wyrhero.demo.di.impl.BlankDisc" >
+              <constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band" />
+              <constructor-arg value="The Beatles" />
+       </bean>-->
+
+       <!-- c命名空间构造注入-->
+       <bean id="compactDesc" class="com.wyrhero.demo.di.impl.BlankDisc" c:title="Sgt. Pepper's Lonely Hearts Club Band" c:artist="The Beatles" />
+       <bean id="cdPlayer" class="com.wyrhero.demo.di.impl.CDPlayer" c:compectDisc-ref="compactDesc" />
+</beans>
